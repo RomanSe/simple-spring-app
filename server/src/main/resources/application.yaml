@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: simple-spring-app-server
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/university
+    username: postgres
+    password: admin
+  jpa:
+    show-sql: true
+
+
+
+server:
+  port: 9777
+eureka:
+  client:
+    service-url:
+      default-zone: ${EURECA_URI:http://localhost:8761/eureka}
+    instance:
+      prefer-ip-address: true
+    fetch-registry: true
+
+
+
