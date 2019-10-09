@@ -1,17 +1,20 @@
 package ru.semenov.server.rest;
 
-import com.netflix.discovery.EurekaClient;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import ru.semenov.server.entities.Student;
 
-@RestController
-public class StudentController {
+public interface StudentController {
+    @GetMapping("/students")
+    @ResponseBody
+    Iterable<Student> find(@RequestParam(value = "name", required = false) String name);
 
-    @Autowired
-    @Lazy
-    EurekaClient eurekaClient;
+    @GetMapping("/students/{id}")
+    @ResponseBody
+    Student findById(@PathVariable("id") Long id);
 
+    @DeleteMapping("/students/{id}")
+    void deleteById(@PathVariable("id") Long id);
 
+    @PutMapping("/students/{id}")
+    void updateStudent(@PathVariable("id") Long id, @RequestBody Student student);
 }

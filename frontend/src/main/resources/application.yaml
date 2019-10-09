@@ -1,9 +1,9 @@
 spring:
   application:
-    name: simple-spring-app-server
+    name: simple-spring-app-frontend
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/university
+    url: jdbc:postgresql://localhost:5432/university-site
     username: postgres
     password: admin
   jpa:
@@ -13,11 +13,13 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQL9Dialect
+  thymeleaf:
+    encoding: UTF-8
 
 server:
-  port: 9777
+  port: 8080
   servlet:
-    context-path: /server
+    context-path: /university
 
 eureka:
   client:
@@ -26,6 +28,3 @@ eureka:
     instance:
       prefer-ip-address: true
     fetch-registry: true
-
-
-
