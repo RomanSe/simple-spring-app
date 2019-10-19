@@ -8,6 +8,7 @@
         <module>server</module>
         <module>frontend</module>
         <module>eureka-service</module>
+        <module>auth-server</module>
     </modules>
 
     <parent>
